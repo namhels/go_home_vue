@@ -1,15 +1,15 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <Btn>Yahoooo!</Btn>
+  <Title></Title>
 </template>
 
 <script>
-import Btn from './components/Button'
+import Title from './components/TitleF.vue'
 
 export default {
   name: 'App',
   components: {
-    Btn
+    Title
   }
 }
 </script>
