@@ -2,6 +2,7 @@
   "name": "go_home_vue",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://namhels.github.io/go_home_vue/",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
