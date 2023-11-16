@@ -1,5 +1,7 @@
 <template>
-  <Button>YahooooO</Button>
+  <div id="app">
+    <Button>Yahoooo8</Button>
+  </div>
 </template>
 
 <script>
