@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div :id="$style.app">
     <h1>{{ title }}</h1>
-    <Button @click="increment">Yahoooo8</Button>
+    <Button @click="increment" outlined>Yahoooo8</Button>
   </div>
 </template>
 
@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style>
+<style module>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
