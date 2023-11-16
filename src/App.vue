@@ -1,5 +1,8 @@
 <template>
-  <Button>Yahoooo8</Button>
+  <div id="app">
+    <h1>{{ title }}</h1>
+    <Button @click="increment">Yahoooo8</Button>
+  </div>
 </template>
 
 <script>
@@ -9,6 +12,21 @@ export default {
   name: 'App',
   components: {
     Button
+  },
+  data () {
+    return {
+      amountOfClicks: 0
+    }
+  },
+  computed:{
+    title () {
+      return `Amount of clicks: ${this.amountOfClicks}`
+    }
+  },
+  methods: {
+    increment () {
+      this.amountOfClicks += 1
+    }
   }
 }
 </script>
