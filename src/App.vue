@@ -1,24 +1,22 @@
 <template>
   <div :id="$style.app">
-    <ApartmentsItem 
-      :descr="apartment.descr"
-      :price="apartment.price"
-      :rating="apartment.rating"
-      imgSrc="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg"
-    />
+    <ApartmentsList :items="apartments" />
   </div>
 </template>
 
 <script>
-import  ApartmentsItem  from './components/apartment/ApartmentsItem'
+import  ApartmentsList  from './components/apartment/ApartmentsList'
+import apartments from './components/apartment/apartments'
+
 
 export default {
   name: 'App',
   components: {
-    ApartmentsItem,
+    ApartmentsList,
   },
   data() {
     return {
+      apartments,
       apartment: {
         id: '5f689a2c09b16000e9a2f47b',
         title: 'Delectus et iste.',
