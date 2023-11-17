@@ -1,11 +1,17 @@
 <template>
   <div :id="$style.app">
-    <ApartmentsList :items="apartments" />
+    <ApartmentsList :items="apartments">
+      <template v-slot:apartment="{ apartment }">
+        <ApartmentsItem :key="apartment.id" :descr="apartment.descr" :rating="apartment.rating" :imgSrc="apartment.imgUrl"
+          :price="apartment.price" />
+      </template>
+    </ApartmentsList>
   </div>
 </template>
 
 <script>
-import  ApartmentsList  from './components/apartment/ApartmentsList'
+import ApartmentsList from './components/apartment/ApartmentsList'
+import ApartmentsItem from './components/apartment/ApartmentsItem'
 import apartments from './components/apartment/apartments'
 
 
@@ -13,27 +19,11 @@ export default {
   name: 'App',
   components: {
     ApartmentsList,
+    ApartmentsItem,
   },
   data() {
     return {
       apartments,
-      apartment: {
-        id: '5f689a2c09b16000e9a2f47b',
-        title: 'Delectus et iste.',
-        imgUrl: '/img/apartments/apartment-1.jpg',
-        descr:
-          'Debitis similique unde et eligendi sapiente in iure blanditiis distinctio. Cum nihil temporibus qui quam aut. Nesciunt qui eveniet eum quam voluptate numquam.',
-        rating: 3,
-        price: 1667,
-        location: {
-          city: 'Dnipro',
-        },
-        owner: {
-          name: 'Bobbi',
-          phone: '582-740-2926',
-          email: 'Pete_Carter53@hotmail.com',
-        },
-      },
     }
   }
 }
