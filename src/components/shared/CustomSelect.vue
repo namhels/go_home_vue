@@ -1,14 +1,11 @@
-<!-- eslint-disable vue/valid-define-props -->
-<!-- eslint-disable no-undef -->
-<script setup>
-defineProps(['modelValue'])
-defineEmits(['update:modelValue'])
-</script>
-
 <template>
-	<select :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" class="custom-select">
-		<option :v-for="item in formatedItems" :key="item.value" :value="item.value">{{ item.label }}</option>
-	</select>
+	<select class="custom-select">
+    <option v-for="item in formatedItems" :key="item.value" :value="item.value">{{ item.label }}</option>
+  </select>
+
+	<!-- <select v-model="selected" class="custom-select">
+		<option v-for="item in formatedItems" :key="item.value" :value="item.value">{{ item.label }}</option>
+	</select> -->
 </template>
 
 <script>
@@ -21,19 +18,13 @@ export default {
 		}
 	},
 	computed: {
-		listeners() {
-			return {
-				...this.$attrs.listeners,
-				input: event => this.$emit('input', event.target.value)
-			}
-		},
 		formatedItems() {
 			return this.items.map(item => {
 				return typeof item === 'object'
 					? item
 					: { value: item, label: item }
 			})
-		}
+		},
 	}
 }
 </script>
