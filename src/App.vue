@@ -1,8 +1,9 @@
 <template>
   <div :id="$style.app">
     <h2>{{ text }}</h2>
-    <CustomSelect :items="['name', 'label', 'salary']" />
-    <CustomInput v-model="text" />
+    <ContainerMain>
+      <ApartmentsFilterForm class="apartments-filter" @submit="logger" />
+    </ContainerMain>
     <ApartmentsList :items="apartments">
       <template v-slot:apartment="{ apartment }">
         <ApartmentsItem :key="apartment.id" :descr="apartment.descr" :rating="apartment.rating" :imgSrc="apartment.imgUrl"
@@ -15,8 +16,8 @@
 <script>
 import ApartmentsList from './components/apartment/ApartmentsList'
 import ApartmentsItem from './components/apartment/ApartmentsItem'
-import CustomInput from './components/shared/CustomInput.vue'
-import CustomSelect from './components/shared/CustomSelect.vue'
+import ApartmentsFilterForm from './components/apartment/ApartmentsFilterForm.vue'
+import ContainerMain from './components/shared/ContainerMain.vue'
 import apartments from './components/apartment/apartments'
 
 
@@ -25,15 +26,20 @@ export default {
   components: {
     ApartmentsList,
     ApartmentsItem,
-    CustomInput,
-    CustomSelect
+    ApartmentsFilterForm,
+    ContainerMain
   },
   data() {
     return {
       text: '',
       apartments,
     }
-  }
+  },
+  methods: {
+    logger(value) {
+      console.log(value, '----form value')
+    }
+  },
 }
 </script>
 
