@@ -6,41 +6,45 @@
     </ContainerMain>
     <ApartmentsList :items="apartments">
       <template v-slot:apartment="{ apartment }">
-        <ApartmentsItem :key="apartment.id" :descr="apartment.descr" :rating="apartment.rating" :imgSrc="apartment.imgUrl"
-          :price="apartment.price" />
+        <ApartmentsItem
+          :key="apartment.id"
+          :descr="apartment.descr"
+          :rating="apartment.rating"
+          :imgSrc="apartment.imgUrl"
+          :price="apartment.price"
+        />
       </template>
     </ApartmentsList>
   </div>
 </template>
 
 <script>
-import ApartmentsList from './components/apartment/ApartmentsList'
-import ApartmentsItem from './components/apartment/ApartmentsItem'
-import ApartmentsFilterForm from './components/apartment/ApartmentsFilterForm.vue'
-import ContainerMain from './components/shared/ContainerMain.vue'
-import apartments from './components/apartment/apartments'
-
+import ApartmentsList from "./components/apartment/ApartmentsList";
+import ApartmentsItem from "./components/apartment/ApartmentsItem";
+import ApartmentsFilterForm from "./components/apartment/ApartmentsFilterForm.vue";
+import ContainerMain from "./components/shared/ContainerMain.vue";
+import apartments from "./components/apartment/apartments";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     ApartmentsList,
     ApartmentsItem,
     ApartmentsFilterForm,
-    ContainerMain
+    ContainerMain,
   },
   data() {
     return {
-      text: '',
+      text: "",
       apartments,
-    }
+    };
   },
   methods: {
     logger(value) {
-      console.log(value, '----form value')
-    }
+      console.log(value, "----form value");
+    },
   },
-}
+};
 </script>
 
 <style module>
